@@ -97,7 +97,6 @@ public class IssueMethods {
                 body("issue.field.find {it.@name == 'summary'}.value", equalTo("My summary")).
                 body("issue.field.find {it.@name == 'description'}.value", equalTo("My description")).
                 extract().response();
-        //не работает вывод на консоль/поправить код!
         //System.out.print(response.asString());
     }
 
@@ -132,7 +131,6 @@ public class IssueMethods {
         Response r = (Response) given().
                 cookies(cookies).
                 param("project", "GOITQA").
-                //сортирует не по фразе "My summary", а отдельно по каждому слову "My" и "summary"/сделать по цельной фразе.
                 param("filter", "").
                 param("after", "70").
                 param("max", "5").
@@ -153,7 +151,6 @@ public class IssueMethods {
 
         Response response = given().
                 cookies(cookies).
-                //сортирует не по фразе "My summary", а отдельно по каждому слову "My" и "summary"/сделать по цельной фразе.
                 param("filter", "").
                 param("callback", "").
 
